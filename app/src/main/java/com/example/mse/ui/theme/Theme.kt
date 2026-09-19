@@ -1,4 +1,4 @@
-package com.example.mse.pw1.ui.theme
+package com.example.mse.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

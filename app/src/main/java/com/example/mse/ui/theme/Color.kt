@@ -1,4 +1,4 @@
-package com.example.mse.pw1.ui.theme
+package com.example.mse.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

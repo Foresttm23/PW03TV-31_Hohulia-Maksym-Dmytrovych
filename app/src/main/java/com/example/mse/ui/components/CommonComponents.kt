@@ -1,4 +1,4 @@
-package com.example.mse.pw1.ui.components
+package com.example.mse.ui.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row

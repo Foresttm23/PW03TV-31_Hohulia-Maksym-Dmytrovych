@@ -1,4 +1,4 @@
-package com.example.mse.pw1.data.model
+package com.example.mse.model
 
 /**
  * Результат валідації полів.

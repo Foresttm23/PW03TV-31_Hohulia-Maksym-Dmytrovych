@@ -1,4 +1,4 @@
-package com.example.mse.pw1.ui.screens.task1
+package com.example.mse.ui.screens.task1
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -41,8 +41,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.mse.pw1.logic.HydroCalculator
-import com.example.mse.pw1.ui.components.MetricCard
+import com.example.mse.logic.HydroCalculator
+import com.example.mse.ui.components.MetricCard
 import java.util.Locale
 
 @Composable

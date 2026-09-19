@@ -1,4 +1,4 @@
-package com.example.mse.pw1.data.model
+package com.example.mse.model
 
 /**
  * Модель даних показників Гідроелектростанції (ГЕС) з контролем рівня води.

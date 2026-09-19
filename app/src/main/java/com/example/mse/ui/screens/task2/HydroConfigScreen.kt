@@ -1,4 +1,4 @@
-package com.example.mse.pw1.ui.screens.task2
+package com.example.mse.ui.screens.task2
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -37,10 +37,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.mse.pw1.logic.HydroCalculationResult
-import com.example.mse.pw1.logic.HydroCalculator
-import com.example.mse.pw1.logic.HydroCalculatorInput
-import com.example.mse.pw1.ui.components.MetricCard
+import com.example.mse.logic.HydroCalculationResult
+import com.example.mse.logic.HydroCalculator
+import com.example.mse.logic.HydroCalculatorInput
+import com.example.mse.ui.components.MetricCard
 import java.util.Locale
 
 @Composable

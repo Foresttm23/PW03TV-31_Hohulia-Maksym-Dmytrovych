@@ -1,6 +1,6 @@
-package com.example.mse.pw1.logic
+package com.example.mse.logic
 
-import com.example.mse.pw1.data.model.HydroStationData
+import com.example.mse.model.HydroStationData
 import kotlin.math.max
 
 data class HydroCalculationResult(
@@ -22,7 +22,7 @@ object HydroCalculator {
     private const val WATER_DENSITY = 1000.0
     private const val GRAVITY = 9.81
 
-    fun calculateEnergy(input: HydroCalculatorInput): HydroCalculationResult {
+    fun calculateEnergy(input: com.example.mse.logic.HydroCalculatorInput): com.example.mse.logic.HydroCalculationResult {
         val head = max(0.0, input.waterHeadMeters)
         val flow = max(0.0, input.waterFlowM3PerSec)
         val eff = max(0.0, input.efficiencyPercentage) / 100.0

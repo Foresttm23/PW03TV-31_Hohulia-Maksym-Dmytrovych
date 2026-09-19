@@ -24,11 +24,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import com.example.mse.pw1.ui.screens.task1.HydroForecastScreen
-import com.example.mse.pw1.ui.screens.task2.HydroConfigScreen
-import com.example.mse.pw1.ui.screens.task3.HydroDashboardScreen
-import com.example.mse.pw1.ui.screens.task4.AuthRegistrationScreen
-import com.example.mse.pw1.ui.theme.MSETheme
+import com.example.mse.ui.screens.task1.HydroForecastScreen
+import com.example.mse.ui.screens.task2.HydroConfigScreen
+import com.example.mse.ui.screens.task3.HydroDashboardScreen
+import com.example.mse.ui.screens.task4.AuthRegistrationScreen
+import com.example.mse.ui.theme.MSETheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

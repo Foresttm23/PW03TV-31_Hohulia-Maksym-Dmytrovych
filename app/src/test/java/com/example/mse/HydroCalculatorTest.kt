@@ -1,8 +1,8 @@
 package com.example.mse
 
-import com.example.mse.pw1.logic.AuthValidator
-import com.example.mse.pw1.logic.HydroCalculator
-import com.example.mse.pw1.logic.HydroCalculatorInput
+import com.example.mse.logic.AuthValidator
+import com.example.mse.logic.HydroCalculator
+import com.example.mse.logic.HydroCalculatorInput
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue

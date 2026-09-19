@@ -1,4 +1,4 @@
-package com.example.mse.pw1.ui.screens.task4
+package com.example.mse.ui.screens.task4
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
@@ -48,7 +48,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.mse.pw1.logic.AuthValidator
+import com.example.mse.logic.AuthValidator
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
