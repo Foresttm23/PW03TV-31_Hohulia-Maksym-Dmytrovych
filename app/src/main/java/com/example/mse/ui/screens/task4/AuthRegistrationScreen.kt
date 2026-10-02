@@ -46,9 +46,11 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.mse.logic.AuthValidator
+import com.example.mse.ui.theme.MSETheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -361,3 +363,12 @@ private fun AuthSuccessCard(message: String?) {
         }
     }
 }
+
+@Preview(showBackground = true)
+@Composable
+fun AuthRegistrationScreenPreview() {
+    MSETheme {
+        AuthRegistrationScreen()
+    }
+}
+

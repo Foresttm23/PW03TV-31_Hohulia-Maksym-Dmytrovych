@@ -2,6 +2,8 @@ package com.example.mse.logic
 
 import com.example.mse.model.HydroStationData
 import kotlin.math.max
+import kotlin.math.round
+import kotlin.random.Random
 
 data class HydroCalculationResult(
     val powerMw: Double,
@@ -22,7 +24,7 @@ object HydroCalculator {
     private const val WATER_DENSITY = 1000.0
     private const val GRAVITY = 9.81
 
-    fun calculateEnergy(input: com.example.mse.logic.HydroCalculatorInput): com.example.mse.logic.HydroCalculationResult {
+    fun calculateEnergy(input: HydroCalculatorInput): HydroCalculationResult {
         val head = max(0.0, input.waterHeadMeters)
         val flow = max(0.0, input.waterFlowM3PerSec)
         val eff = max(0.0, input.efficiencyPercentage) / 100.0
@@ -35,17 +37,17 @@ object HydroCalculator {
         val totalWaterVolumeM3 = flow * 3600.0 * hours
 
         return HydroCalculationResult(
-            powerMw = (powerMw * 100.0).let { Math.round(it) / 100.0 },
-            dailyGenerationMwh = (dailyGenerationMwh * 100.0).let { Math.round(it) / 100.0 },
-            monthlyGenerationMwh = (monthlyGenerationMwh * 10.0).let { Math.round(it) / 10.0 },
-            totalWaterVolumeM3 = Math.round(totalWaterVolumeM3).toDouble()
+            powerMw = round(powerMw * 100.0) / 100.0,
+            dailyGenerationMwh = round(dailyGenerationMwh * 100.0) / 100.0,
+            monthlyGenerationMwh = round(monthlyGenerationMwh * 10.0) / 10.0,
+            totalWaterVolumeM3 = round(totalWaterVolumeM3)
         )
     }
 
     fun generateRandomMetrics(): HydroStationData {
-        val level = (118.0f + (Math.random() * 5.0f).toFloat())
-        val flow = (200.0f + (Math.random() * 300.0f).toFloat())
-        val head = (12.0f + (Math.random() * 6.0f).toFloat())
+        val level = 118.0f + Random.nextFloat() * 5.0f
+        val flow = 200.0f + Random.nextFloat() * 300.0f
+        val head = 12.0f + Random.nextFloat() * 6.0f
 
         val calc = calculateEnergy(
             HydroCalculatorInput(
@@ -55,11 +57,11 @@ object HydroCalculator {
         )
 
         return HydroStationData(
-            waterLevelMeters = (level * 10f).let { Math.round(it) / 10f },
+            waterLevelMeters = round(level * 10f) / 10f,
             targetWaterLevelMeters = 122.0f,
-            waterFlowRateM3PerSec = (flow * 10f).let { Math.round(it) / 10f },
+            waterFlowRateM3PerSec = round(flow * 10f) / 10f,
             generatedPowerMw = calc.powerMw.toFloat(),
-            waterHeadMeters = (head * 10f).let { Math.round(it) / 10f }
+            waterHeadMeters = round(head * 10f) / 10f
         )
     }
 }
