@@ -8,3 +8,8 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Звіти та скріншоти практичних робіт
+docs/
+# Кеш компілятора Kotlin
+.kotlin/

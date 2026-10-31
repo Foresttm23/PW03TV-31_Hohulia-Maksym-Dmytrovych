@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Analytics
 import androidx.compose.material.icons.filled.Calculate
@@ -16,6 +17,10 @@ import androidx.compose.material.icons.filled.DoorSliding
 import androidx.compose.material.icons.filled.Explore
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Water
+import androidx.compose.material.icons.filled.Storage
+import androidx.compose.material.icons.filled.CloudDownload
+import androidx.compose.material.icons.filled.VerifiedUser
+import androidx.compose.material.icons.filled.ReportProblem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.PrimaryScrollableTabRow
@@ -38,6 +43,10 @@ import com.example.mse.ui.screens.task5.HydroNavMenuScreen
 import com.example.mse.ui.screens.task6.HydroWaterControlScreen
 import com.example.mse.ui.screens.task7.HydroSpillwayControlScreen
 import com.example.mse.ui.screens.task8.HydroOperationsCenterScreen
+import com.example.mse.ui.screens.task9.ReservoirJournalScreen
+import com.example.mse.ui.screens.task10.CascadeForecastScreen
+import com.example.mse.ui.screens.task11.SecureAccessScreen
+import com.example.mse.ui.screens.task12.NetworkErrorsScreen
 import com.example.mse.ui.theme.MSETheme
 
 class MainActivity : ComponentActivity() {
@@ -46,7 +55,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MSETheme {
-                MainAppScreen()
+                MainAppScreen(initialTab = intent.getIntExtra("tab", 0))
             }
         }
     }
@@ -60,8 +69,8 @@ data class NavigationTab(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainAppScreen() {
-    var selectedTabIndex by remember { mutableIntStateOf(0) }
+fun MainAppScreen(initialTab: Int = 0) {
+    var selectedTabIndex by remember { mutableIntStateOf(initialTab) }
 
     val tabs = listOf(
         NavigationTab(
@@ -103,14 +112,37 @@ fun MainAppScreen() {
             title = "Task 8: Диспетчер",
             icon = Icons.Default.Computer,
             screen = { HydroOperationsCenterScreen() }
+        ),
+        NavigationTab(
+            title = "Task 9: Repository",
+            icon = Icons.Default.Storage,
+            screen = { ReservoirJournalScreen() }
+        ),
+        NavigationTab(
+            title = "Task 10: REST API",
+            icon = Icons.Default.CloudDownload,
+            screen = { CascadeForecastScreen() }
+        ),
+        NavigationTab(
+            title = "Task 11: Токен і ролі",
+            icon = Icons.Default.VerifiedUser,
+            screen = { SecureAccessScreen() }
+        ),
+        NavigationTab(
+            title = "Task 12: Помилки мережі",
+            icon = Icons.Default.ReportProblem,
+            screen = { NetworkErrorsScreen() }
         )
     )
+
+    selectedTabIndex = selectedTabIndex.coerceIn(0, tabs.lastIndex)
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
             PrimaryScrollableTabRow(
                 selectedTabIndex = selectedTabIndex,
+                modifier = Modifier.statusBarsPadding(),
                 edgePadding = 16.dp
             ) {
                 tabs.forEachIndexed { index, tab ->

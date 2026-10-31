@@ -1,6 +1,6 @@
-# PW01ТВ-31_Гогуля Максим Дмитрович
+# PW03ТВ-31_Гогуля Максим Дмитрович
 
-Практичні роботи (Таски 1-8) з дисципліни "Мобільні системні розробки" (MSE).
+Практичні роботи (Таски 1-12) з дисципліни "Мобільні системні розробки" (MSE).
 
 ## Інформація про студента
 - **ПІБ:** Гогуля Максим Дмитрович
@@ -17,6 +17,13 @@
 - **Task 7 (Практична 7):** Контролер затворів ГЕС (`HydroSpillwayControlScreen`). Застосування архітектурного патерну **MVVM**, створення `ViewModel`, використання `StateFlow` для реактивного управління станом екрану.
 - **Task 8 (Практична 8):** Диспетчерський центр з локальною БД (`HydroOperationsCenterScreen`). Робота з локальним сховищем **Room Database** (SQLite), збереження, читання (`Flow`) та видалення телеметричних показників.
 
+- **Task 9 (Практична 9):** Журнал гідропостів каскаду (`ReservoirJournalScreen`). **Repository + Data Source**: Room, імітований SCADA-сервер і кеш у пам'яті (TTL), режими джерела (локальне / віддалене / агреговане), CRUD, пошук, фільтри, сортування, агрегація та тренд рівня, offline-first синхронізація.
+- **Task 10 (Практична 10):** Прогноз притоку каскаду ГЕС (`CascadeForecastScreen`). **Retrofit + Gson**: Open-Meteo Flood API (GloFAS) і Weather API, вкладені JSON, паралельні запити з retry/backoff, офлайн-кеш у Room, розрахунок потужності та паводкового ризику, адаптивна сітка карток.
+- **Task 11 (Практична 11):** Захищений доступ до SCADA (`SecureAccessScreen`). Mocked API автентифікації (OkHttp Interceptor), JWT-подібний токен з HMAC-підписом, DataStore, `AuthInterceptor`, термін дії, ролі Адміністратор / Черговий інженер / Спостерігач, обробка 401/403 і підробленого токена.
+- **Task 12 (Практична 12):** Діагностика мережевих запитів (`NetworkErrorsScreen`). Перевірка мережі, централізований `ErrorHandler`, Snackbar/діалоги, retry для тимчасових помилок і `Retry-After`, окремі повідомлення для HTTP 400–503, журнал помилок у файл і Logcat.
+
+Тестові користувачі Task 11 (mocked): `admin / Admin#2026`, `engineer / Engineer#2026`, `observer / Observer#2026`.
+
 ## Технологічний стек
 - **Мова:** Kotlin
 - **UI:** Jetpack Compose (Material 3)
@@ -24,3 +31,6 @@
 - **Архітектура:** MVVM (Model-View-ViewModel) з `StateFlow`
 - **Локальна База Даних:** Room Database (SQLite) + `kapt`
 - **Асинхронність:** Kotlin Coroutines & Flow
+- **Мережа:** Retrofit 2 + Gson, OkHttp (Interceptor, HttpLoggingInterceptor)
+- **Сховище токена:** Jetpack DataStore Preferences
+- **Тести:** JUnit 4, kotlinx-coroutines-test (`./gradlew testDebugUnitTest`)
